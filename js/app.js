@@ -22,6 +22,7 @@ var app = new Vue({
       let value = this.newTodo.trim();
       // trim() 會把輸入內容前後多餘的空白刪除
       let timestamp = Math.floor(Date.now());
+      // 使用 timestamp 會使每個待辦事件獲得unique ID，在使用 v-for 時綁 :key 會用到
       if (!value) {
         return;
       }
