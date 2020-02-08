@@ -21,7 +21,7 @@ var app = new Vue({
     addTodo: function() {
       let value = this.newTodo.trim();
       // trim() 會把輸入內容前後多餘的空白刪除
-      var timestamp = Math.floor(Date.now());
+      let timestamp = Math.floor(Date.now());
       if (!value) {
         return;
       }
@@ -61,8 +61,9 @@ var app = new Vue({
 
     doneEdit: function(item) {
       item.title = this.cacheTitle;
+      // 按下 enter，用 cacheTitle 取代該項內容
       this.cacheTitle = "";
-      // 按下 enter，用 cacheTitle 取代該項內容，接著清空 cacheTitle
+      // 接著清空 cacheTitle
       this.cacheTodo = {};
       // 清掉物件，不然 v-if="item.id === cacheTodo.id" 的判斷不會過，畫面會卡住
     },
